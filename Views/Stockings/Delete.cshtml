@@ -1,0 +1,28 @@
+@model TennesseeStockings.Models.Stock
+
+<form asp-action="Delete" asp-area="Stockings" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label>Stream:</label>
+                <input asp-for="Stream" type="text" disabled class="form-control required" placeholder="Enter Stream"
+                    tabindex="1">
+            </div>
+            <div class="form-group">
+                <label>Stocking:</label>
+                <input asp-for="Stocking" type="text" disabled class="form-control required"
+                    placeholder="Enter Stocking" tabindex="2">
+            </div>
+            <div class="form-group">
+                <div asp-validation-summary="All" class="text-danger"></div>
+            </div>
+            <div class="card-footer">
+                <center>
+                    <button type="submit" class="btn btn-danger">Delete Stocking</button>
+                    <a asp-action="Index" asp-controller="Stockings" class="btn btn-secondary">Cancel</a>
+                </center>
+            </div>
+        </div>
+    </div>
+</form>

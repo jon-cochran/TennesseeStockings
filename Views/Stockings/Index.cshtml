@@ -1,0 +1,46 @@
+@model List<TennesseeStockings.Models.Stock>
+
+<form asp-action="Index" method="get">
+    <div>
+        <p>
+            Search Stream: <input type="text" name="searchStream" value="" />
+            <input type="submit" value="Search" class="btn btn-info" />
+            <a asp-action="Index">Remove Filter</a>
+        </p>
+    </div>
+</form>
+
+<div class="row">
+    <div class="col-md-12">
+        <a asp-action="Create" asp-controller="Stockings" class="btn btn-info">Create</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Stream</td>
+                    <td>Stocking</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Stream</td>
+                        <td>@item.Stocking.ToShortDateString()</td>
+                        <td>
+                            <a asp-action="Edit" asp-controller="Stockings" asp-route-id="@item.Id">
+                                Edit
+                            </a>
+                            <a asp-action="Delete" asp-controller="Stockings" asp-route-id="@item.Id">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
